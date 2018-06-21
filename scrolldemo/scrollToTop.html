@@ -68,7 +68,8 @@
         })
         $(".top").click(function () {
             // alert("123");
-            $("body,html").stop().animate({scrollTop:0},300);
+            //chrome,firefox支持html;safari支持body；
+            $("html,body").stop().animate({scrollTop:0},300);
         });
     })
 </script>
