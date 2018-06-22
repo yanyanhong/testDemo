@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播焦点图</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        ul{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        .outter{
+            width: 750px;
+            height: 100px;
+            border: 5px solid red;
+            margin: 30px auto;
+            position: relative;
+        }
+        .outter .imgs  li{
+            position: absolute;
+            top:0;
+            left: 0;
+        }
+        .outter .dotter{
+            position: absolute;
+            /*top:0;*/
+            left: 0;
+            font-size: 0px;
+            text-align: center;
+            width: 100%;
+            bottom:20px;
+        }
+        .outter .dotter li{
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            font-size: 12px;
+            line-height: 20px;
+            background-color: #666;
+            color: #ffffff;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        .btn{
+            position: absolute;
+            width: 20px;
+            height: 60px;
+            background-color: rgba(0,0,0,.2);
+            color: #ffffff;
+            text-align: center;
+            /*line-height: 100%; //line-height :100%相对于*/
+            line-height:60px;
+            top:calc(50% - 30px);
+            display: none;
+            cursor: pointer;
+            font-size: 15px;
+        }
+        .outter:hover .btn{
+            display: block;
+        }
+        .btn.left{
+            left: 0;
+        }
+        .btn.right{
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="outter">
+        <ul class="imgs">
+            <li><a href="#"><img src="../images/01.jpg" alt=""></a></li>
+            <li><a href="#"><img src="../images/02.jpg" alt=""></a></li>
+            <li><a href="#"><img src="../images/03.jpg" alt=""></a></li>
+            <li><a href="#"><img src="../images/06.jpg" alt=""></a></li>
+            <li><a href="#"><img src="../images/07.jpg" alt=""></a></li>
+        </ul>
+        <ul class="dotter">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <div class="left btn"><</div>
+        <div class="right btn">></div>
+    </div>
+<script src="../js/jquery.min.js"></script>
+</body>
+</html>
