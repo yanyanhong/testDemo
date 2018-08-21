@@ -1,3 +1,15 @@
 .red{
     color:red;
 }
+.a{
+    background-image: url("../images/01.jpg");
+}
+.b{
+    background-image: url("../images/02.jpg");
+}
+.c{
+    background-image: url("../images/03.jpg");
+}
+.d{
+    background-image: url("../images/04.jpg");
+}

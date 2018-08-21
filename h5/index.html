@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>移动端适配</title>
+    <style>
+        a:active{
+            background-color: blue;
+        }
+        .clear:after{
+            content: "";
+            display: table;
+            clear: both;
+            /*white-space: pre-wrap;*/
+        }
+        /*img{*/
+            /*max-width: 30%;*/
+            /*min-width: 20%;*/
+            /*!*height: auto!important;*!*/
+            /*vertical-align: top;*/
+        /*}*/
+        /*html{*/
+            /*width: 25%;*/
+        /*}*/
+        div>span{
+            display: inline-block;
+            padding: 5px;
+            background-color: cadetblue;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+<div style="font-size: 0">
+    <span>你好</span>
+    <span>你好</span>
+    <span>你好</span>
+
+</div>
+<div>
+    <span style="display: inline-block;"></span>
+</div>
+<!--<span style="background-color: red;line-height: 0;">xxxy</span>-->
+<!--<span style="display: inline-block;width: 100px;height: 100px;"></span>-->
+<div style="background-color: cadetblue;"><img src="../images/702x100.png" alt="" style="display: inline-block;"></div>
+<div class="box" style="line-height: 20px;">
+    <span style="line-height: 96px;"></span>
+</div>
+<div>
+    <p style="font-size: 20px;font-family: simsun;">fff你好</p>
+    <span></span>
+</div>
+<div style="column-count: 3;column-width: 200px;height: 100px;width: 600px;">
+    <p>
+        你好CSS3 column多栏布局是支持比较早的CSS3布局方式，目前IE10+以及其他所有现代浏览器都支持，IE浏览器不需要私有前缀，FireFox和Chrome虽然现在也不需要，但是，考虑到移动端以及可能一些用户浏览器升级不及时的现状，因此，-webkit-以及-moz-前缀目前还不能省略。
+    </p>
+</div>
+<div style="display: grid;grid-template-columns: 50px 50px 50px;justify-content:center;grid-template-rows: 1fr 1fr 1fr 1fr;grid-gap:10px 15px;height: 100px;justify-items: end;align-items: start;">
+    <div style="background-color: salmon;width: 50%;height: 50%"></div>
+    <div style="background-color: saddlebrown;"></div>
+    <div style="background-color: cadetblue;"></div>
+
+    <div style="background-color: salmon;"></div>
+    <div style="background-color: saddlebrown;"></div>
+    <div style="background-color: cadetblue;"></div>
+
+    <div style="grid-column: span 2;grid-row:span 2;background-color: chartreuse;"></div>
+</div>
+<div style="width: 40px;overflow: hidden">
+    <input type="button" value="按钮按钮按钮" width="40" style="white-space:pre-wrap"/>
+    <button>按钮按钮按钮</button>
+</div>
+
+<div style="white-space: pre;">
+    返回
+    顶部
+</div>
+<div style="width: 30%;height: 30px;background-color: salmon;"></div>
+<div style="width: 160px;height: 30px;background-color: salmon;"></div>
+<div style="background-image: url('../images/702x100.png');height: 100px; "></div>
+<div style="width: 100px;height: 100px;border: 2px solid saddlebrown;overflow: hidden;">
+    <img src="../images/702x100.png" alt="" style="float: right;">
+</div>
+<div>
+    <img src="../images/702x100.png" alt="" style="max-width: 100%;">
+</div>
+<div style="width: 80%;height: 30px;">
+    <div style="border: 3px solid red;">
+        <img src="../images/702x100.png" alt="" style="max-width: 100%;">
+    </div>
+
+</div>
+<div style="height: 0;padding-top: 20%;background-color: cadetblue;"></div>
+<div style="font-size: 0;">
+    <img src="../images/702x100.png" style="" alt=""/>
+    <img src="../images/702x300.png" alt=""/>
+    <img src="../images/702x450.png" alt=""/>
+</div>
+<div style="width: 100%;height: 100%;background-color: #555555;"></div>
+<div style="width: 1000px;height: 100px;border: 1px solid red;">
+    <textarea style="display:block;padding: 10px;border: 1px solid blue;outline: none;box-sizing: border-box;"></textarea>
+</div>
+<div style="position: absolute;width: 100px;height: 100px;background-color: #666666">
+
+</div>
+<span style="opacity: 0.5;">福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看
+        福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看
+        福建省倒海翻江可视电话肌</span>
+<div style="padding: 30px;" class="clear">
+    <div style="width: 100px;height: 200px;background-color: cadetblue;float: left" ></div>
+    <div style="position: absolute;width: 200px;height: 200px;background-color: #555555;z-index: 0">
+        <div style="background-color: red;width:150px;height: 150px;"></div>
+        <span style="background-color: blue;">可怜房间啊哭</span>
+    </div>
+    <p class="clear">福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看
+        福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看
+        福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看
+        福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看</p>
+</div>
+<button>按钮</button>
+
+<div class="clear" style="font-size: 0;">
+    <img src="" alt=""/>
+</div>
+<a href="javascript:void;" id="aa">哈哈哈</a>
+<span style="display: flex;width: 100px;height: 100px;background-color: red;"></span>
+<script>
+    // alert(document.documentElement.clientWidth);
+    // alert(document.documentElement.offsetWidth);
+    alert(screen.width);
+    console.log("screen.width",screen.width);
+
+    setInterval(function () {
+        console.log("document.documentElement.offsetWidth",document.documentElement.offsetWidth)
+        console.log("document.documentElement.clientWidth",document.documentElement.clientWidth);
+        console.log(window.innerWidth);
+    },1000);
+    document.querySelector("#aa").addEventListener("mousedown",function (e) {
+        e.preventDefault();
+    })
+</script>
+</body>
+</html>
