@@ -2,9 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <!--<meta name="viewport" content="width=370,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">-->
     <title>移动端适配</title>
     <style>
+        html{
+            width: 320px;
+            font-size: 12.1256px;
+        }
         a:active{
             background-color: blue;
         }
@@ -28,15 +32,113 @@
             padding: 5px;
             background-color: cadetblue;
             font-size: 20px;
+
+        }
+        .bgtest{
+            height: 100px;
+            padding:20px;
+            /*-ms-background-clip:content-box;*/
+            /*-moz-background-clip: content-box;*/
+            /*-webkit-background-clip: content-box;*/
+            /*background-clip: content-box;*/
+
+            background: url('../images/702x100.png') no-repeat;
+            /*background-color: chartreuse;*/
+            background-origin: content-box;
+            border:3px dashed blue;
+
+            background-size: contain;
+
+        }
+        .reflect{
+            /*width: 100%;*/
+            /*height: auto;*/
+            -webkit-box-reflect: below 10px linear-gradient(transparent, white);
+            -moz-box-reflect: below;
+        }
+        .scale{
+            position: relative;
+            width: 100px;
+            height: 100px;
+        }
+        .scale:after{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            border: 1px solid red;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            width: 100px;
+            height: 200%;
+            -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+            -webkit-transform-origin: left top;
+            transform-origin: left top;
+            /*background-color: chartreuse;*/
+        }
+        .background-gradient-1px{
+            background:
+                    -webkit-gradient(linear, left top, right bottom, color-stop(0, transparent), color-stop(0, #000), to(#000)) left / 1px 100% no-repeat,
+                    -webkit-gradient(linear, left top, right bottom, color-stop(0, transparent), color-stop(0, #000), to(#000)) right / 1px 100% no-repeat,
+                    -webkit-gradient(linear, left top, right bottom, color-stop(0, transparent), color-stop(0, #000), to(#000)) top / 100% 1px no-repeat,
+                    -webkit-gradient(linear, left top, right bottom, color-stop(0, transparent), color-stop(0, #000), to(#000)) bottom / 100% 1px no-repeat
         }
     </style>
 </head>
 <body>
+<script>
+
+    window.onload = function (ev) {
+        alert("screenWidth"+screen.width+"screenHeight"+screen.height+"\n"+"windowInnerWidth"+window.innerWidth+"windowInnerHeight"+window.innerHeight
+            +"\n"+"document.documentElement.clientWidth"+document.documentElement.clientWidth+"document.documentElement.clientHeight"+document.documentElement.clientHeight
+            +"\n"+"document.documentElement.offsetWidth"+document.documentElement.offsetWidth+"\ndocument.documentElement.offsetHeight"+document.documentElement.offsetHeight);
+    }
+    alert("window.devicePixelRatio"+window.devicePixelRatio);
+    alert("screenWidth"+screen.width+"screenHeight"+screen.height+"\n"+"windowInnerWidth"+window.innerWidth+"windowInnerHeight"+window.innerHeight
+        +"\n"+"document.documentElement.clientWidth"+document.documentElement.clientWidth+"document.documentElement.clientHeight"+document.documentElement.clientHeight
+        +"\n"+"document.documentElement.offsetWidth"+document.documentElement.offsetWidth+"\ndocument.documentElement.offsetHeight"+document.documentElement.offsetHeight);
+
+    window.onscroll = function (ev) {
+        console.log("pageYOffset",window.pageYOffset);
+        console.log("pageXOffset",window.pageXOffset)
+    }
+</script>
+<img src="/images/citylist.jpg" srcset="/images/citylist.jpg 2x,/images/w375.png" alt="城市列表图片" style="width: 100%;height: auto;">
+<div style="width: 370px;height: 30px;background-color: saddlebrown;"></div>
+<div style="width: 72pt;height: 72pt;background-color: red;"></div>
+<div style="width: 100%;height: 100px;background-color: cadetblue;position: static;">
+    <div style="position: absolute;left: 300px;top:10px;display: inline-block;">jkjk</div>
+</div>
+<div style="width: 100px;height: 100px;" class="background-gradient-1px" ></div>
+<div style="width: 100px;height: 100px;border: 1px solid red;"></div>
+<div class="scale">
+    <div>kjf</div>
+</div>
+<div style="width: 100px;height: 100px;border: 2px solid red;"></div>
+
+<img src="http://didu.local.com/partner/app/sendCode?phone=18701358726" alt="fff"/>
+<img src="http://didu.local.com/activitynotify/delnotify?notifyId=15" alt="fff"/>
+<!--<form action="http://didu.local.com/activitynotify/delnotify?notifyId=" method="POST" id="hack" enctype='text/plain'>-->
+    <!--&lt;!&ndash;<input type="hidden" name="to" value="hacker_account">name="userIds"&ndash;&gt;-->
+    <!--<input type="hidden"  name='userIds' value="18">-->
+<!--</form>-->
+<script>document.getElementById("hack").submit();</script>
+<img src="http://didu.local.com/security/sys/user/info" alt="fff"/>
+<!--<img src="http://didu.local.com/security/logout" alt="fff"/>-->
+<img src="http://didu.local.com/app/order/getCity?code=jPYRDO6AgWyqeMPhJsTQWl4CXaYvPIz6LSArPfEXbW1HueM03m5K4w==" alt="你好啊" width="100" height="100">
+<div style="padding-bottom: 200px;">
+    <img src="../images/702x100.png" class="reflect" alt="">
+</div>
+<div style="" class="bgtest"></div>
+<div style="width: 100px;height: 100px;text-align: justify;background-color: cadetblue;display: flex;justify-content: space-between;text-align-last: justify;">
+    你好你好啊啊啊克利夫兰看到风急浪大jffjfj
+    反馈撒拉等肌肤轮廓
+</div>
 <div style="font-size: 0">
     <span>你好</span>
     <span>你好</span>
     <span>你好</span>
-
 </div>
 <div>
     <span style="display: inline-block;"></span>
@@ -52,7 +154,7 @@
     <span></span>
 </div>
 <div style="column-count: 3;column-width: 200px;height: 100px;width: 600px;">
-    <p>
+    <p style="font-size: .5rem">
         你好CSS3 column多栏布局是支持比较早的CSS3布局方式，目前IE10+以及其他所有现代浏览器都支持，IE浏览器不需要私有前缀，FireFox和Chrome虽然现在也不需要，但是，考虑到移动端以及可能一些用户浏览器升级不及时的现状，因此，-webkit-以及-moz-前缀目前还不能省略。
     </p>
 </div>
@@ -104,7 +206,7 @@
 <div style="position: absolute;width: 100px;height: 100px;background-color: #666666">
 
 </div>
-<span style="opacity: 0.5;">福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看
+<span style="opacity: 0.5;font-size: 13px;">福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看
         福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看福建省倒海翻江可视电话肌肤快速的将开放后就开始纠结看
         福建省倒海翻江可视电话肌</span>
 <div style="padding: 30px;" class="clear">
@@ -139,6 +241,10 @@
     document.querySelector("#aa").addEventListener("mousedown",function (e) {
         e.preventDefault();
     })
+    VO(test functionContext) = {
+        x: 30,
+        b: 20
+    }
 </script>
 </body>
 </html>
