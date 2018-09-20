@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>Title</title>
+    <style>
+        /*@font-face {*/
+            /*font-family: 'PingFang SC';*/
+            /*font-style: normal;*/
+            /*font-weight: 400;*/
+            /*src:url('http://192.168.11.15:8080/ttf/pingfang/PINGFANGBOLD.TTF');*/
+            /*!*unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;*!*/
+        /*}*/
+        /*body{*/
+            /*font-family: "Wawati SC","Lantinghei SC","Microsoft Sans Serif", sans-serif;*/
+            /*!*font-family: Consolas,Monaco;*!*/
+        /*}*/
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC","Helvetica Neue",STHeiti,"Microsoft Yahei",Tahoma,Simsun,sans-serif;
+        }
+        .dialog-footer{
+            text-align: center;
+        }
+        @media screen  and (max-device-width: 480px) {
+            .dialog-footer{
+                direction: rtl;
+            }
+        }
+        button{
+            outline: none;
+        }
+        .input{
+            outline: none;
+        }
+        .input:focus{
+            border:1px solid red;
+        }
+        :focus + label.btn{
+            outline: 1px solid red;
+            outline:5px auto -webkit-focus-ring-color;
+        }
+        input[type="submit"]{
+            position: absolute;
+            clip:rect(0 0 0 0);
+        }
+        aa:first-letter{
+            color: black;
+        }
+        h1:first-line{
+            color:chartreuse;
+        }
+        h1{
+            background-color: currentColor;
+        }
+        .dotted{
+            box-sizing: border-box;
+            width: 150px;
+            height: 150px;
+            border:129px dotted #cd0000;
+            overflow: hidden;
+        }
+        .curr{
+            width: 100px;height: 100px;color:blueviolet;border:1px solid ;
+        }
+        .curr:hover{
+            color:red;
+        }
+        input[type="button"]{
+            white-space: normal;
+        }
+        .ao{
+            display: inline-block;
+            width: 0;
+        }
+        .ao:after{
+            content:"love 你 love";
+            border:1px solid red;
+            /*outline: 1px solid red;*/
+            color:black;
+        }
+        .maxwidth{
+            display: inline-block;
+            width: 0;
+            white-space: nowrap;
+        }
+        .dd{
+            background-color: #666666;
+            transition: min-height .2s;
+            min-height: 0;
+        }
+        .dd:hover{
+            min-height: 300px;
+        }
+        /*img{*/
+            /*width: 100px;*/
+            /*height: 100px;*/
+        /*}*/
+        .d{
+            position: relative;
+        }
+        .d:before{
+            content: "ddd";
+            position:absolute;
+            left:100px;
+            top:0;
+        }
+        .single{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            transform: rotateX(30deg);
+            position: relative;
+        }
+        .single:before{
+            content: '';
+            background-color: yellow;
+            width: 100px;
+            height: 100px;
+            transform: rotateX(45deg);
+            position: absolute;
+            z-index: 2;
+        }
+        .single:after{
+            content: '';
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            transform: rotateX(60deg);
+            position: absolute;
+            z-index: 3;
+        }
+        .meinv{
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            position: relative;
+            color: transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        img:not([src]) {
+            /* 隐藏Chrome alt文字以及银色边框 */
+            visibility: hidden;
+        }
+        .meinv:after{
+            content:attr(alt);
+            position: absolute;
+            left:0;
+            bottom:0;
+            width: 100%;
+            background-color: rgba(0,0,0,.5);
+            transform: translateY(100%);
+            transition: transform .2s;
+
+        }
+        .meinv:hover:after{
+            transform: translateY(0);
+        }
+        .father{
+            width: 200px;
+            height: 200px;
+            border: 4px dashed red;
+            background-color: cornflowerblue;
+            padding: 10px;
+            /*background-clip: padding-box;*/
+        }
+        .son{
+            width: 100px;
+            height: 100px;
+            border: 1px solid blue;
+            margin-left: auto;
+            margin-right: 10px;
+        }
+        .reset{
+            counter-reset: yan ;
+            /*counter-increment: yan;*/
+        }
+        .aa:before{
+            counter-increment: yan;
+            content:counters(yan,"-");
+        }
+    </style>
+</head>
+<body style="">
+<div class="reset">
+    <div class="aa">
+        <div class="reset">
+            <div class="aa">
+                <div class="reset">
+                    <div class="aa"></div>
+                    <div class="aa"></div>
+                    <div class="aa"></div>
+                    <div class="aa"></div>
+                    <div class="aa"></div>
+                    <div class="aa"></div>
+                </div>
+            </div>
+            <div class="aa"></div>
+            <div class="aa"></div>
+            <div class="aa"></div>
+        </div>
+    </div>
+    <div class="aa">
+        <div class="reset">
+            <div class="aa"></div>
+            <div class="aa"></div>
+            <div class="aa"></div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+<a href="">fldsjfk</a>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <img  src="" alt="美女沉思图" class="meinv">
+    <div style="min-width: 1000px;height: 300px;background-color: cornflowerblue">
+        <div style="height: 200px;background-color: yellow;width: 100%;"></div>
+    </div>
+    <div class="single"></div>
+    <div>dd</div>
+    <div style="background-color: #777777;width: 100px;height: 100px;position: relative"></div>
+    <div class="d">fk</div>
+    <img/>
+    <div style="background-color: #666666">
+        <span style="display: inline-block;width: 100%;"></span>
+        <br/>
+        <span style="display: inline-block;width: 100%;"></span>
+    </div>
+    <p style="padding: 20px;">这事一段文本</p>
+    <div style="width: 400px;height: 300px;background-color: red">
+        <div style="width: 800px;height: 50%;background-color: #777777;max-width: 700px;"></div>
+    </div>
+    <div class="dd">dd</div>
+    <div style="height: 100%;border: 1px solid chartreuse;">
+
+        fklj
+        <span style="display: inline-block;height: 100%;background-color: rosybrown;">11</span>
+    </div>
+    <div style="width: auto;border: 1px solid red;">
+        <div style="width: 30%;border: 1px solid royalblue;"></div>
+    </div>
+    <div class="maxwidth">
+        内敛咖啡冷静的思考了f
+        <span>fklsadjflskdjf</span>
+        <br/>
+        ---kfljsdkflj
+        <p>f;adlfj</p>
+    </div>
+    <div class="ao"></div>
+    <div style="width: 0;height: 100px;border:1px solid red;">
+        <div style="display: inline-block">你好发货</div>
+    </div>
+    <div style="width: 100px;height: 100px;border: 1px solid red;"><button>你好看焕发健康回复金卡</button></div>
+    <div style="width: 100px;height: 100px;border: 1px solid red;">
+        <input type="button" value="你好看焕发健康回复金卡" style="white-space: normal;"/>
+    </div>
+    <div class="curr" style="">fd</div>
+    <div>13389898989;yan_yanyanhong@yeah.net</div>
+    <div class="dotted"></div>
+    <div style="border: 3px dotted red;">iiiiii</div>
+    <div>mmmmmm</div>
+    <div style="direction: rtl;">
+        左
+        <span style="display: inline-block;">左</span>
+        <span style="display: inline-block;">右</span>
+        右
+    </div>
+    <div style="direction: rtl;">
+        <img src="../images/01.jpg" alt="" style="width: 100px;">
+        <img src="../images/02.jpg" alt="" style="width: 100px;">
+    </div>
+    <div class="dialog-footer">
+        <button>确认</button>
+        <button>取消</button>
+    </div>
+    <div style="width: 200px;white-space: nowrap;text-overflow:ellipsis;overflow: hidden;direction: rtl;">
+        你好啊这事测试省略文本内容的段落
+    </div>
+    <div style="writing-mode: vertical-rl;outline: 1px solid red;">
+        123你好啊
+    </div>
+    <!--outline: 1px solid red;-->
+    <a href="javascript:alert('123')" style="">风口浪尖</a>
+    <input type="text" placeholder="请输入姓名" class="input" style="text-transform: uppercase;">
+    <input  type="submit" id="btn" value="tijiao nihao" role="button"/>
+    <label for="btn" class="btn">提交</label>
+    <style>
+        .box > .target{
+            /*visibility: hidden;*/
+            display: none;
+            position:absolute;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+        .box:hover > .target{
+            display: block;
+            /*visibility: visible;*/
+            opacity: 1;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .target{
+            width: 50px;
+            height: 50px;
+            background-color: cornflowerblue;
+        }
+    </style>
+    <div class="box">
+        <div class="target">
+
+        </div>
+    </div>
+    <style>
+
+    </style>
+    <div></div>
+    <div class="aa" style="font-size: 16px; color:red;background-color: currentColor;">
+        hgjhghj
+        <h1 style="font-size: 2em;width: 64px;color:black">标题</h1>
+        正常就会看见回家快回家快回家快
+    </div>
+    <img src="" alt="图片">
+    <div style="text-decoration: underline;">你好啊国子金玉全王</div>
+    <script>
+        var a = {a:1,b:2};
+        var b = Object.create(a);
+        b.c = 3;
+        console.log(b);
+        console.log(b.prototype);
+        function People(name,age) {
+            this._name = name;
+            this._age = age;
+        }
+        People.prototype = {
+            humen :"humen"
+        }
+        console.log(People);
+        console.log(new People("yan",23));
+        console.log(People.prototype);
+        console.log((new People("yanke",23)).__proto__);
+    </script>
+</body>
+</html>
