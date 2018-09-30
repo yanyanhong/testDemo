@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="http://static.87870.com/content/common/js/jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            (function (btn) {
+                var emptyFun = new validateEmpty();
+                var regexFun = new validateRegex();
+                var compareFun = new validateCompare();
+                var alertFun = new displayAlert();
+                var arrayValidateMethod = {
+                    "qp_null": function (obj) {
+                        return emptyFun.validateMethod(obj);
+                    },
+                    "qp_regex": function (obj) {
+                        return regexFun.validateMethod(obj);
+                    },
+                    "qp_compare": function (obj) {
+                        return compareFun.validateMethod(obj);
+                    }
+                };
+                var arrayCallMethod = {
+                    "qp_null": "data-null",
+                    "qp_regex": "data-regex",
+                    "qp_compare": "data-compare"
+                };
+                var arrayValue = {
+                    "qp_regex": "data-vregex",
+                    "qp_compare": "data-vcompare"
+                };
+                var arrayPrompt = {
+                    "qp_null": "data-prompt",
+                    "qp_regex": "data-rprompt",
+                    "qp_compare": "data-cprompt"
+                };
+                var arrayPromptDefault={
+                    "qp_null": "不能为空！",
+                    "qp_regex": "格式不正确！",
+                    "qp_compare": "两次输入不一致！"
+                };
+                var arrayDisplayModel = {
+                    "alert": function (obj, key) {
+                        alertFun.displayMethod(obj, key);
+                    },
+                    "displace": function (obj, key) {
+                    }
+                };
+                var arrayRegex = {
+                    "qp_number": /^[0-9]*$/
+                };
+                function validateEmpty() {
+                    this.validateMethod = function (obj) {
+                        var result = false;
+                        var value = obj.val();
+                        if ($.trim(value) != "") {
+                            result = true;
+                        }
+                        return result;
+                    };
+                }
+                function validateCompare() {
+                    this.validateMethod = function (obj) {
+                        var result = false;
+                        var value = obj.val();
+                        var compareValue = $("." + obj.attr("data-vcompare")).val();
+                        if (value == compareValue) {
+                            result = true;
+                        }
+                        return result;
+                    };
+                }
+                function validateRegex() {
+                    this.validateMethod = function (obj) {
+                        var result = false;
+                        var value = obj.val();
+                        var regex = arrayRegex[obj.attr("data-vregex")];
+                        if (!regex) {
+                            regex = obj.attr("data-vregex");
+                        }
+                        if (regex.test(value)) {
+                            result = true;
+                        }
+                        return result;
+                    };
+                }
+                function displayAlert() {
+                    this.displayMethod = function (obj,key) {
+                        var prompt = arrayPrompt[key];
+                        if (obj.attr(prompt)) {
+                            alert(obj.attr(prompt));
+                        } else {
+                            alert(arrayPromptDefault[key]);
+                        }
+                    };
+                }
+                $(btn).on("click", function () {
+                    var group = $(this).attr("data-group");
+                    if (!group) {
+                        return false;
+                    }
+                    var displayMode = $(this).attr("data-displaymode");
+                    if (!displayMode) {
+                        return false;
+                    }
+                    var errorTimes = 0;
+                    $('*[data-group="' + group + '"]').each(function () {
+                        for (var key in arrayValidateMethod) {
+                            if ($(this).hasClass(key)) {
+                                var dataCall = $(this).attr(arrayCallMethod[key]);
+                                if (dataCall && $.trim(dataCall) != "") {
+                                    if (!eval(dataCall)($(this))) {
+                                        errorTimes++;
+                                        var _displayMode = $(this).attr("data-displaymode");
+                                        if (_displayMode) {
+                                            if (arrayDisplayModel[_displayMode]) {
+                                                arrayDisplayModel[_displayMode]($(this), key);
+                                            } else {
+                                                eval(_displayMode)($(this), key);
+                                            }
+                                        } else {
+                                            arrayDisplayModel[displayMode]($(this), key);
+                                        }
+                                        return false;
+                                    }
+                                } else {
+                                    if (!arrayValidateMethod[key]($(this))) {
+                                        errorTimes++;
+                                        var _displayMode = $(this).attr("data-displaymode");
+                                        if (_displayMode) {
+                                            if (arrayDisplayModel[_displayMode]) {
+                                                arrayDisplayModel[_displayMode]($(this), key);
+                                            } else {
+                                                eval(_displayMode)($(this), key);
+                                            }
+                                        } else {
+                                            arrayDisplayModel[displayMode]($(this), key);
+                                        }
+                                        return false;
+                                    }
+                                }
+                            }
+                        }
+                    });
+                });
+            })(".qp_validation");
+            /**
+            class=qp_null 表单不能为空
+            class=qp_regex 表单需要正则验证 data-vregex的值为要验证表单的正则表达式（也可以直接填写arrayRegex json中预定义好的正则键值） data-regex：如果默认的方法无法满足需求 可定义data-regex的值 如testFun 系统将自动调用testFun(obj) obj为当前表单对象 
+            class=qp_compare 两个表单的内容对比 data-vcompare的值为要对比的表单的class名 data-compare可自定义方法供系统调用 同上
+            data-displaymode:显示方式 目前内置的有一种 alert 可以自定义扩展方法
+            data-prompt：不满足qp_null时提示
+            data-rprompt:不满足qp_regex时提示
+            data-cprompt:不满足qp_compare时提示
+            data-group:分组 只有跟事件触发对象在同一组内的表单才会被验证
+            data-call:事件触发对象 当通过验证后调用的方法
+            */
+            function callmebaby(obj) {
+                if (obj.val() == "baby") {
+                    return true;
+                }
+                return false;
+            }
+        });
+    </script>
+
+</head>
+<body>
+    用户名<input type="text" class="user qp_null qp_regex" data-vregex="qp_number" data-null="" data-prompt="用户名不能为空！" data-group="0"/>
+    昵称<input type="text" class="user qp_null" data-group="0" data-prompt="昵称不能为空！"/>
+    密码<input type="text" class="user" data-group="3"/>
+    重复密码<input type="text" class="user" data-group="1"/>
+    baby<input type="text" class="user qp_null" data-null="callmebaby" data-prompt="只能在文本框输入baby！" data-group="0"/>
+    <input type="button" class="qp_validation" data-group="0" data-displaymode="alert" value="提交"/>
+</body>
+</html>

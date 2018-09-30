@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function Dog(name ,sex) {
+        this.name = name;
+        this.sex = sex;
+        // this.say = function () {
+        //     console.log("我的名字叫"+this.name+",我是"+this.sex+"孩");
+        // }
+    }
+    Dog.prototype.spiece = "犬科";
+    Dog.prototype.say = function () {
+        console.log("我的名字叫"+this.name+",我是"+this.sex+"孩");
+    }
+    var dog = new Dog("大黄","男");
+    var dog2 = new Dog("笨笨","女");
+    dog.say();
+
+    console.log(dog.say === dog2.say);
+    console.log(dog);
+    console.log(Dog.prototype.constructor);
+
+    console.log(dog.spiece);
+    console.log(dog2.spiece);
+
+
+    Dog.prototype.spiece = "猫科";
+
+
+    // dog.spiece = "猫狗";
+    console.log(dog.spiece);
+    console.log(dog2.spiece);
+    console.log(dog);
+
+    dog.__proto__.spiece = "大老虎";
+
+    console.log(dog.spiece);
+    console.log(dog2.spiece);
+
+    var point = {x:0,y:0,print:function () {
+            console.log(this.x,this.y);
+        }}
+    var p = {x:10,y:20,__proto__:point}
+    p.print();
+</script>
+</body>
+</html>
