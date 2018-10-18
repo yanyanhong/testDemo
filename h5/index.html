@@ -4,6 +4,25 @@
     <meta charset="UTF-8">
     <!--<meta name="viewport" content="width=370,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">-->
     <title>移动端适配</title>
+    <script src="../js/jquery.min.js"></script>
+    <script>var $j = jQuery.noConflict();</script>
+    <script>
+        $j(function () {
+            console.log("$j",$j);
+            var test = document.getElementById("test");
+
+            console.table(test);
+            console.log(test.attributes.titles1);
+            console.log(test.titles1);
+            console.log(test.id);
+            $("#test").click(function () {
+                console.log("click");
+                console.log(this);
+                console.log(document.getElementById("test"));
+            })
+        })
+
+    </script>
     <style>
         html{
             width: 320px;
@@ -87,8 +106,27 @@
     </style>
 </head>
 <body>
+<h1 id="tes">1h1</h1>
+<h1>2</h1>
+<h1>3</h1>
+<h1>4</h1>
+<h1>5</h1>
 <script>
+    $(function () {
+        $('li').attr({'data-main':"1333",'class':'aad ddd'}).appendTo($('#tes'));
+        console.log($.browser);
+        console.log("support",$.support);
+    })
 
+    // $("h1").html("你好啊");
+    console.log($("h1").html());
+    var createFunction = function(i) {
+        return function() { alert(i); };
+    };
+    for (var i=0; i<5; i++) {
+        $('<p>click me</p>').appendTo('body').click(createFunction(i));
+    }
+    i = 100;
     window.onload = function (ev) {
         alert("screenWidth"+screen.width+"screenHeight"+screen.height+"\n"+"windowInnerWidth"+window.innerWidth+"windowInnerHeight"+window.innerHeight
             +"\n"+"document.documentElement.clientWidth"+document.documentElement.clientWidth+"document.documentElement.clientHeight"+document.documentElement.clientHeight
@@ -104,6 +142,7 @@
         console.log("pageXOffset",window.pageXOffset)
     }
 </script>
+<div id="test" class="aa" titles1="dklj" data-main="data-main">fjkfjkjfkd</div>
 <img src="/images/citylist.jpg" srcset="/images/citylist.jpg 2x,/images/w375.png" alt="城市列表图片" style="width: 100%;height: auto;">
 <div style="width: 370px;height: 30px;background-color: saddlebrown;"></div>
 <div style="width: 72pt;height: 72pt;background-color: red;"></div>
