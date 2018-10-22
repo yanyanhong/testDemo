@@ -3,11 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="http://img.mukewang.com/down/540812440001e40e00000000.js" type="text/javascript"></script>
 </head>
 <body>
-
+<!--<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" alt="">-->
+    <input type="button" value="toggleTest" id="toggle">
+    <div id="test" style="width: 100px;height: 100px;background-color: cornflowerblue"></div>
 <script>
-    (function (a,b) {
+
+    // $("#toggle").on("click",function () {
+    //     $("#test").toggle(function () {
+    //         $(this).show();
+    //     },function () {
+    //         $(this).show();
+    //     })
+    // });
+
+    $("#toggle").toggle(function () {
+        $("#test").show();
+    },function () {
+        $("#test").hide();
+    })
+    ;(function (a,b) {
 
     }(1,2));
 </script>

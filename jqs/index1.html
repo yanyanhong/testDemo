@@ -21,7 +21,8 @@
 </head>
 <body>
 
-
+<input type="button" value="toggletest" id="toggletest"/>
+<div style="width: 100px;height: 100px;background-color: red"></div>
 <!-- 例一 -->
 <p>First Paragraph</p>
 <p>Second Paragraph</p>
@@ -42,12 +43,40 @@
     <input type="checkbox" name="newsletter" value="Yearly">
 </form>
 <div id="t"></div>
+
+
+<div id="datacache">datacache</div>
+
+<input type="button" value="链式调用1"/>
+<input type="button" value="链式调用2"/>
+<input type="button" value="链式调用3"/>
+<div class="aa" style="width: 100px;height: 100px;background-color: #3e999f"></div>
+<!--<input type="button" value="链式调用4"/>-->
+<div id="test">
+    <div id="item">222</div>
+</div>
+
+
+<ul id="container">
+
+    ewew
+    <li class="item-list">1</li>
+</ul>
 <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.js"></script>-->
 <script>
-
+    // window.onerror = function (e) {
+    //     console.log(e);
+    //     return true;
+    // }
+    // window.addEventListener("error",function (ev) {
+    //     console.log(ev);
+    //     return true;
+    // })
     //例一
     $("p").click(function () {
-        $(this).slideUp();
+        $(this).slideUp(1000,function () {
+            console.log("p 元素被隐藏了")
+        });
     });
 
 
@@ -75,10 +104,352 @@
 
 
     //练习
-    var a = document.getElementById("go");
-    var b = new Object();
+    // var a = document.getElementById("go");
+    // var b = new Object();
     // a.go = b;
     // b.a = a;
+    // JSON.stringify(a);
+    //
+    // var person2 = {
+    //     name:"ke"
+    // }
+    // var person1 = {
+    //     name:"yan",
+    // }
+    // person1.br = person2;
+    // person2.br = person1;
+    // JSON.stringify(person1);
+
+
+    // console.log("============出错后继续执行")
+
+
+    function showlog( url, data, callback, type) {
+        if ( jQuery.isFunction( data ) ) {
+            type     = type || callback;
+            callback = data;
+            data     = undefined;
+        }
+        console.log("url:"+url+"\n"+"data:"+data+"\n"+"callback:"+callback+"\n"+"type:"+type);
+    }
+
+    showlog("http://wwww.baidu.com",function aa() {
+        
+    });
+
+
+    //联系匿名函数表达式
+    
+    (function (window,factory) {
+        var x = factory();
+        console.log(x);
+        x(window);
+    })(this,function () {
+        return function (context) {
+            console.log("123"+context);
+        }
+    });
+    
+    
+    (function (window,undefined) {
+        var jquery = function () {
+            
+        }
+        console.log("window:"+window);
+        console.log("undefined:"+undefined);
+    })(window)
+    
+    var J = (function () {
+        return 2;
+    })();
+    console.log("J:"+J);
+
+    var arr = [1,2,8,6,4,9,5,0,2]
+      var arr2 = arr.sort(function (x,y) {
+        return x > y;
+    });
+    console.log(arr);
+    console.log(arr2);
+    
+    var yyhJquery = function (selector) {
+        if(!(this instanceof yyhJquery)){
+            return new yyhJquery(selector);
+        }
+        var elem = document.getElementById(/[^#].*/.exec(selector)[0]);
+        this.length = 1;
+        this.context = document;
+        this.selector = selector;
+        this[0] = elem;
+        // this.get = function (index) {
+        //     return this[index];
+        // }
+        yyhJquery.prototype.get = function (index) {
+            return this[index];
+        }
+        return this;
+    }
+
+    console.log(yyhJquery("#test")[0]);
+
+
+        function ajQuery() {
+            this.name = 'jQuery';
+            this.sayName = function () {
+                return this.name
+            }
+        }
+        var a = new ajQuery();
+        var b = new ajQuery();
+        var c = new ajQuery();
+        console.log(a,b,c);
+
+
+    function ajQuery1() {
+        this.name = 'jQuery'
+    }
+    ajQuery1.prototype = {
+        sayName: function() {
+            return this.name
+        }
+    };
+    ajQuery1.prototype.constructor = ajQuery1;
+    var a = new ajQuery1()
+    var b = new ajQuery1()
+    var c = new ajQuery1()
+    console.log(a,b,c);
+    
+    
+    
+    var yJQuery = function (selector) {
+        return new yJQuery.fn.init(selector)
+    }
+    yJQuery.fn = yJQuery.prototype = {
+        init:function (selector) {
+            var elem = document.getElementById(/[^#].*/.exec(selector)[0]);
+            this[0] = elem;
+            this.selector = selector;
+            this.context = document;
+            return this;
+        },
+        version:"1.0.1",
+        constructor:yJQuery,
+        get:function (index) {
+            return this[0];
+        }
+    }
+    yJQuery.fn.init.prototype = yJQuery.fn;
+    
+    yJQuery.extend = yJQuery.fn.extend = function () {
+        var options,copy,
+            target = arguments[0]||{};
+            i = 1;
+            length = arguments.length;
+            if(i == length){
+                target = this;
+                i--;
+            }
+            for(;i<length;i++){
+                if((options = arguments[i]) != null){
+                    for(name in options){
+                        copy = options[name];
+                        target[name] = copy;
+                    }
+                }
+            }
+        return target;
+    };
+    yJQuery.extend({
+        each:function (arr,callback) {
+            for(var i = 0,len = arr.len();i<len;i++){
+                var tag = callback(i,arr[i]);
+
+            }
+        }
+    })
+
+    var yyh = yJQuery("#test");
+    yJQuery.extend({
+        sayName:function () {
+            console.log("my name is yyh");
+            return this;
+        },
+        saySex1:function () {
+            console.log("my name is sex");
+            return this;
+        }
+    });
+    var obj = {};
+    yJQuery.extend(obj,{
+        sayName:function () {
+            console.log("my name is obj name");
+            return this;
+        }
+    },{
+        saySex:function () {
+            console.log("my sex is obj sex");
+            return this;
+        }
+    });
+    console.log(yyh.get(0));
+    yJQuery.sayName().saySex1();
+    obj.sayName().saySex();
+    // obj.saySex();
+
+
+
+    //练习
+    $('input[type="button"]')
+        .eq(0).click(function() {
+        alert('点击我!');
+    }).end().eq(1)
+        .click(function() {
+            $('input[type="button"]:eq(0)').trigger('click');
+        }).end().eq(2).toggle(function () {
+                $(".aa").show();
+            },function () {
+                $(".aa").hide();
+            });
+
+    $("#toggletest").toggle(function () {
+             $("#block").show();
+    },function () {
+        $("#block").hide();
+    })
+
+
+
+    //练习
+    $("#container").find(".item-list").on("click",function () {
+        alert($(this).text());
+    })
+        .end().on("click",function () {
+        alert($(this).html());
+    })
+    console.log($("#container").end());
+
+
+
+    //迭代器
+    function each(obj,callback) {
+        for(var i = 0,length = obj.length;i<length;i++){
+            var tag = callback(i,obj[i]);
+            if(!tag){
+                break;
+            }
+        }
+    }
+    console.log(each([1,2,3,4],function (index,item) {
+        console.log("index:"+index+"--->value:"+item);
+        if(index === 2){
+            return false;
+        }
+        return true;
+    }))
+    
+    
+    $.each([1,2,3,4,5,6,7,8,9,10],function (index,value) {
+        console.log(index+"--->",$(this));
+    })
+
+
+    //异步回调对列
+    function queuelist(list,callback) {
+        var item ;
+        if(typeof (item = list.shift()) === "function"){
+            item();
+        }
+        if(list.length > 0){
+           queuelist(list,callback);
+        }else{
+            callback()
+        }
+    }
+    queuelist([
+        function () {
+            console.log(1)
+        },
+        function () {
+            console.log(2)
+        },
+        "456"
+    ],function () {
+        console.log("执行完毕");
+    })
+
+    //回调模拟
+
+    function createOption(options) {
+        var cache  = createOption.cache = createOption.cache || {},
+            obj = {};
+        if(typeof cache[options] !== "undefined"){
+            return cache[options];
+        }
+        $.each(options.match(/\S+/g),function (_,flag) {
+            obj[flag] = true;
+        })
+        createOption.cache[options] = obj;
+        return obj;
+    }
+    function Callback(options) {
+        options = typeof options === "string"? createOption(options) : $.extend({},options);
+        console.log(options);
+
+        var list = [],
+            self = {
+                add:function () {
+                    list = list.concat(Array.prototype.slice.call(arguments));
+                },
+                fire:function () {
+                    for(var i =0,len=list.length;i<len;i++){
+                        list[i]();
+                    }
+                }
+
+            }
+            return self;
+    }
+    Callback("once memory");
+    Callback("once memory");
+    var a = Callback();
+    a.add(function () {
+        console.log("执行1")
+    },
+        function () {
+            console.log("执行2");
+        }
+    );
+    a.fire();
+
+    // for(var i =0 ;i<1000;i++){
+    //     var obj = new Object();
+    //     obj.aa = $("#datacache");
+    //     $("#datacache").attr("data-a"+i,obj);
+    // }
+
+    // console.log($("#datacache").attr("data-a0"));
+    var test1 = $("#datacache");
+    var test2 = $("#datacache");
+    test1.data("aa","aa");
+    test2.data("aa","bb");
+    console.log(test1.data("aa"));
+    console.log(test2.data("aa"));
+
+
+    $.data(test1,"aa","bb");
+    $.data(test2,"aa","cc");
+    console.log($.data(test1,"aa"));
+    console.log($.data(test2,"aa"));
+
+    console.log("undefined",$.data(test1,undefined));
+    var o = {
+        cc:"cc"
+    };
+    $.data(o,"dd","dd");
+    console.log(o);
+    console.log($.expando);
+
+
+
 </script>
 
 
