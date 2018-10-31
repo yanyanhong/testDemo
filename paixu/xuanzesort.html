@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="parent">
+        你好啊
+    </div>
+<script>
+
+    function renderchild() {
+        var parent = document.getElementById("parent");
+        for(var i=0;i<10000;i++){
+            var child = document.createElement("p");
+            child.innerHTML = "段落内容";
+            parent.appendChild(child);
+            window.getComputedStyle(parent);
+        }
+        console.log(window.getComputedStyle(parent));
+    }
+    renderchild();
+
+    //
+    //     var arr=[3,44,38,5,47,15,36,26,27,2,46,4,19,50,48];
+    // function selectSort(arr) {
+    //     var len = arr.length,
+    //         temp,
+    //         minIndex;
+    //     for(var i = 0;i < len; i++){
+    //         minIndex = i;
+    //         for(j = i + 1;j < len; j++){
+    //             if(arr[minIndex] > arr[j]){
+    //                 minIndex = j;
+    //             }
+    //         }
+    //         temp = arr[minIndex];
+    //         arr[minIndex] = arr[i];
+    //         arr[i] = temp;
+    //     }
+    //
+    //     return arr;
+    // }
+    //
+    // console.log(selectSort(arr));
+    //
+    //
+    // function selectsort2(arr) {
+    //     var len = arr.length,
+    //         maxIndex,temp;
+    //     for(var i = 0;i<len;i++){
+    //         maxIndex = i;
+    //         for(var j = i+1;j<len;j++){
+    //             if(arr[maxIndex] < arr[j]){
+    //                 maxIndex = j;
+    //             }
+    //         }
+    //         temp = arr[maxIndex];
+    //         arr[maxIndex] = arr[i];
+    //         arr[i] = temp;
+    //     }
+    //     return arr;
+    // }
+    //
+    // console.log(selectsort2(arr));
+
+</script>
+</body>
+</html>

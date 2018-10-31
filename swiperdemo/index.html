@@ -2,12 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <META HTTP-EQUIV="Pragma" CONTENT="public">
     <meta name="viewport" content="width=370,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <title>Title</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.min.css">
     <script src="//code.jquery.com/jquery-latest.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js"></script>
     <script src="../js/jquery.lazyload.min.js"></script>
+    <script type="text/javascript" defer="defer">
+        alert("defer");
+    </script>
+    <script type="text/javascript">
+        alert("script");
+    </script>
+    <script type="text/javascript">
+        window.onload = function(){
+            alert("load");
+        };
+    </script>
     <style>
         body{
             padding: 0;
@@ -223,6 +235,33 @@
         $("img.lazy").lazyload({effect: "fadeIn"});
     })
 </script>
+<div id="grow" style="width: 100px;height: 20px;background-color: #3e999f;"></div>
+<script>
+    var x = [];
 
+    function grow() {
+        for (var i = 0; i < 10000; i++) {
+            document.body.appendChild(document.createElement('div'));
+        }
+        x.push(new Array(1000000).join('x'));
+    }
+
+    document.getElementById('grow').addEventListener('click', grow);
+</script>
+<div id="create" style="width: 100px;height: 20px;background-color: red;margin: 10px">create</div>
+<script>
+    var detachedNodes;
+
+    function create() {
+        var ul = document.createElement('div');
+        for (var i = 0; i < 10; i++) {
+            var li = document.createElement('p');
+            ul.appendChild(li);
+        }
+        detachedTree = ul;
+    }
+
+    document.getElementById('create').addEventListener('click', create);
+</script>
 </body>
 </html>
