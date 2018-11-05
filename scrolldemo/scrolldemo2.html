@@ -45,12 +45,12 @@
         var top1 = $(window).scrollTop();
         $(window).scroll(function () {
             var t = $(this).scrollTop();
-            if(t>=$(this).height()){
+            if(t >= $(this).height()){
                 $(".top").stop().fadeIn();
             }else{
                 $(".top").stop().fadeOut();
             }
-            if(t>top1){
+            if(t > top1){
                 $(".nav").removeClass("on");
             }else{
                 $(".nav").addClass("on");
